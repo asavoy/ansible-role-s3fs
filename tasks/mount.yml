@@ -39,7 +39,7 @@
     src: "s3fs#{{ item.bucket }}"
     fstype: fuse
     opts: "_netdev,{{ item.options }},passwd_file={{ s3fs_passwd_file }}"
-    state: present
+    state: mounted
   with_items: "{{ s3fs_buckets }}"
   when: s3fs_buckets is defined and s3fs_add_to_fstab
   no_log: True
